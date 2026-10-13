@@ -40,8 +40,7 @@ jobs:
       - name: Assert outputs are wired
         run: |
           echo "score=${{ steps.valuation.outputs.score }}"
-          echo "valuation=${{ steps.valuation.outputs.valuation }}"
           echo "decision=${{ steps.valuation.outputs.decision }}"
           test "${{ steps.valuation.outputs.score }}" = "90"
-          test "${{ steps.valuation.outputs.valuation }}" = "\$193-\$442"
+          test '${{ steps.valuation.outputs.valuation }}' = '$193-$442'
           test "${{ steps.valuation.outputs.decision }}" = "ALERT"
