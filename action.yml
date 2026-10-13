@@ -12,10 +12,13 @@ inputs:
 outputs:
   score:
     description: 'TEOS Score 0-100'
+    value: ${{ steps.valuation.outputs.score }}
   valuation:
     description: 'Estimated range'
+    value: ${{ steps.valuation.outputs.valuation }}
   decision:
     description: 'ALERT/LOG/IGNORE'
+    value: ${{ steps.valuation.outputs.decision }}
 runs:
   using: 'composite'
   steps:
@@ -23,5 +26,9 @@ runs:
       with:
         dotnet-version: '8.0.x'
     - name: Run TEOS Valuation
+      id: valuation
       shell: bash
+      # Composite run steps execute in the CALLER's workspace by default; the action's own
+      # sources live under github.action_path, so build/run from there.
+      working-directory: ${{ github.action_path }}
       run: dotnet run --project src/Teos.RepoValuation/Teos.RepoValuation.csproj -- smoke

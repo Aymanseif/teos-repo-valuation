@@ -23,3 +23,24 @@ jobs:
 
       - name: Smoke (same path the action runs)
         run: dotnet run --project src/Teos.RepoValuation/Teos.RepoValuation.csproj -- smoke
+
+  action-selftest:
+    # Exercises action.yml exactly as a consumer would (composite cwd + outputs wiring),
+    # so a broken action path or unmapped output fails CI here instead of in a consumer repo.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use this action locally
+        id: valuation
+        uses: ./
+        with:
+          github-token: ${{ github.token }}
+
+      - name: Assert outputs are wired
+        run: |
+          echo "score=${{ steps.valuation.outputs.score }}"
+          echo "decision=${{ steps.valuation.outputs.decision }}"
+          test "${{ steps.valuation.outputs.score }}" = "90"
+          test '${{ steps.valuation.outputs.valuation }}' = '$193-$442'
+          test "${{ steps.valuation.outputs.decision }}" = "ALERT"
