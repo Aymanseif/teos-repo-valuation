@@ -1,4 +1,4 @@
-# TEOS Sovereign Repo Valuation
+# TEOS Sovereign Repo Valuator
 
 GitHub Action that values a repository as an asset: a **deterministic score 0–100**,
 an **estimated dollar range**, and a **decision band** (`ALERT` when the repo looks
@@ -12,7 +12,7 @@ notable, `LOG` when it's watch-worthy, `IGNORE` otherwise).
 ## Usage
 
 ```yaml
-- uses: Elmahrosa/teos-repo-valuation@v1.2.1
+- uses: Aymanseif/teos-repo-valuation@v1.2.3
   id: valuation
   with:
     github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -54,7 +54,7 @@ metadata: stars, repository size (KB ⇒ estimated LOC), language count, freshne
 dotnet run --project src/Teos.RepoValuation/Teos.RepoValuation.csproj -- smoke
 
 # live valuation of any public repo (needs a token for rate limits)
-dotnet run --project src/Teos.RepoValuation/Teos.RepoValuation.csproj -- --repo-url https://github.com/Elmahrosa/teos-opportunity-network
+dotnet run --project src/Teos.RepoValuation/Teos.RepoValuation.csproj -- --repo-url https://github.com/actions/checkout
 ```
 
 ## License
