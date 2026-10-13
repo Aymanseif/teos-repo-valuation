@@ -1,4 +1,4 @@
-name: 'TEOS Sovereign Repo Valuation'
+name: 'TEOS Sovereign Repo Valuator'
 description: 'Value your GitHub repo as asset - Score 0-100 + dollar estimation. Deterministic, no LLM.'
 author: 'Elmahrosa'
 branding:
