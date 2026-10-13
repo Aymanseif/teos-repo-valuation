@@ -63,9 +63,9 @@ public static class Program
 
         var rawData = new RawRepoData
         {
-            Url = "https://github.com/Elmahrosa/teos-opportunity-network",
-            FullName = "Elmahrosa/teos-opportunity-network",
-            Name = "teos-opportunity-network",
+            Url = "https://github.com/actions/checkout",
+            FullName = "actions/checkout",
+            Name = "checkout",
             Stars = 12,
             SizeKb = 2500,
             LanguageCount = 2,
