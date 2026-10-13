@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Teos.RepoValuation</RootNamespace>
+    <AssemblyName>teos-repo-valuation</AssemblyName>
+  </PropertyGroup>
+
+</Project>
