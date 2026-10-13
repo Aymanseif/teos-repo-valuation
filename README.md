@@ -12,7 +12,7 @@ notable, `LOG` when it's watch-worthy, `IGNORE` otherwise).
 ## Usage
 
 ```yaml
-- uses: Elmahrosa/teos-repo-valuation@v1.2.0
+- uses: Elmahrosa/teos-repo-valuation@v1.2.1
   id: valuation
   with:
     github-token: ${{ secrets.GITHUB_TOKEN }}
